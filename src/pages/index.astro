@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import TitleSection from '../components/TitleSection.astro';
+import ProjectsSection from '../components/projects/ProjectsSection.astro';
+import SkillsSection from '../components/skills/SkillsSection.astro';
+---
+
+<Layout>
+	<div class="page">
+		<header>
+			<Header />
+		</header>
+		<main class="main">
+			<div class="main-content">
+				<div class="left-stack">
+					<section class="title">
+						<TitleSection />
+					</section>
+					<section class="skills">
+						<SkillsSection />
+					</section>
+				</div>
+				<section class="projects">
+					<ProjectsSection />
+				</section>
+			</div>
+		</main>
+		<footer>
+			<Footer />
+		</footer>
+	</div>
+</Layout>
+
+<style lang="scss">
+	@use '/src/scss/primitives.scss';
+	@import '/src/scss/modularScale.scss';
+	.page {
+		@include primitives.cover(modular-scale(0))
+	}
+
+	.main-content {
+		@include primitives.with-sidebar(modular-scale(14), modular-scale(5), true);
+	}
+
+	.left-stack {
+		@include primitives.stack(modular-scale(3));
+	}
+	
+	.title {
+		grid-area: title;
+	}
+	.skills {
+		grid-area: skills;
+	}
+	.projects {
+		grid-area: projects;
+	}
+</style>

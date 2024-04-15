@@ -1,0 +1,63 @@
+---
+const {title, image, techs, href=''} = Astro.props
+---
+<a href={href}>
+    <section>
+        <div class="preview">
+            <img src={`/projects/${image}.webp`} alt=''>
+        </div>
+        <header>
+            <h1>{title}</h1>
+            <div class="techs">
+                {
+                    techs.map((tech: string) => (
+                        <picture>
+                            <source type="image/webp" srcset={`/techicons/${tech}.webp`}>
+                            <source type="image/png" srcset={`/techicons/${tech}.png`}>
+                            <img src={`/techicons/${tech}.png`} alt=''>
+                        </picture>
+                    ))
+                }
+            </div>
+        </header>
+    </section>
+</a>
+
+<style lang="scss">
+    @use '/src/scss/primitives.scss';
+    @import '/src/scss/modularScale.scss';
+
+    section {
+        @include primitives.stack(modular-scale(1));
+        @include primitives.box(0)
+    }
+    a {
+        color: inherit;
+        text-decoration: none
+    }
+    h1 {
+        margin-block: 0;
+    }
+    .preview {
+        @include primitives.frame(16, 9);
+    }
+    .preview img {
+        border-radius: 1rem;
+    }
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    h1 {
+        font-family: var(--font-2);
+        font-weight: 400;
+    }
+    .techs {
+        @include primitives.cluster(modular-scale(-1))
+    }
+    .techs img {
+        width: modular-scale(2);
+    }
+    
+</style>

@@ -1,0 +1,19 @@
+---
+import Logo from "./Logo.astro";
+import Mail from "./Mail.astro";
+---
+
+<div class="header">
+    <Logo />
+    <Mail />
+</div>
+
+<style lang="scss">
+    @import '/src/scss/modularScale.scss';
+    .header {
+        padding: modular-scale(1) 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+</style>

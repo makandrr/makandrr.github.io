@@ -1,0 +1,24 @@
+---
+const {icon = '', label} = Astro.props
+---
+
+<div role="listitem">
+    {
+        icon ? <picture>
+        <source type="image/webp" srcset={`/techicons/${icon}.webp`}>
+        <source type="image/png" srcset={`/techicons/${icon}.png`}>
+        <img src={`/techicons/${icon}.png`} alt=''>
+      </picture> : ''
+    }
+    {label}
+</div>
+
+<style lang="scss">
+    @use '/src/scss/primitives.scss';
+    @import '/src/scss/modularScale.scss';
+    div {
+        @include primitives.with-icon(modular-scale(0), 2, false);
+        font-family: var(--font-2);
+        font-weight: 500;
+    }
+</style>

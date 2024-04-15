@@ -1,0 +1,28 @@
+<div class="title-section">
+    <h1 class="section-title">Hi, I'm Maksim</h1>
+    <p>I’m a <span class="saturated">middle front-end developer</span></p>
+</div>
+
+<style lang="scss">
+    @use '/src/scss/primitives.scss';
+    @import '/src/scss/modularScale.scss';
+
+    .title-section {
+        @include primitives.stack(modular-scale(-5))
+    }
+
+    h1 {
+        margin-block: 0;
+    }
+
+    p {
+        font-size: modular-scale(5);
+        font-weight: 800;
+        color: var(--color-primary);
+    }
+
+    .saturated {
+        color: var(--color-primary-saturated)
+    }
+
+</style>

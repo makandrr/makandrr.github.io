@@ -1,0 +1,13 @@
+@use "sass:math";
+
+$base: 1rem;
+$positiveBase: 1.3;
+$negativeBase: 1.25;
+
+@function modular-scale($coefficient) {
+    @if $coefficient >= 0 {
+        @return $base * math.pow($positiveBase, $coefficient);
+    } @else {
+        @return $base * math.pow($negativeBase, $coefficient);
+    }
+}

@@ -1,0 +1,109 @@
+---
+import SkillsGroup from "./SkillsGroup.astro";
+import Skill from "./Skill.astro";
+import Columns from "./Columns.astro";
+---
+
+<section>
+    <h1 class="section-title">Here are my skills:</h1>
+    <div class="grid">
+        <div class="basic"><SkillsGroup name="Basic">
+            <Columns amount="1" size="1.8">
+                <Skill icon="html" label="HTML5"/>
+                <Skill icon="css" label="CSS"/>
+                <Skill icon="js" label="JavaScript"/>
+                <Skill icon="ts" label="TypeScript"/>
+                <Skill icon="nodejs" label="Node.js"/>
+            </Columns>
+        </SkillsGroup></div>
+        <div class="frameworks"><SkillsGroup name="Frameworks">
+            <Columns amount="1" size="1.8">
+                <Skill icon="react" label="React"/>
+            </Columns>
+            <Columns amount="2">
+                <Skill icon="nextjs" label="Next.js"/>
+                <Skill icon="remix" label="Remix"/>
+                <Skill icon="redux" label="Redux + TK"/>
+                <Skill icon="styledcomponents" label="styled-components"/>
+                <Skill icon="emotion" label="Emotion"/>
+                <Skill icon="swr" label="SWR"/>
+            </Columns>
+            <Columns amount="1" size="1.8">
+                <Skill icon="vue" label="Vue"/>
+            </Columns>
+        </SkillsGroup></div>
+        <div class="backend"><SkillsGroup name="Back-end">
+            <Columns amount="1" size="1.8">
+                <Skill icon="mysql" label="MySQL"/>
+                <Skill icon="mongodb" label="MongoDB"/>
+                <Skill icon="graphql" label="GraphQL"/>
+                <Skill icon="linux" label="Linux"/>
+                <Skill icon="jenkins" label="Jenkins"/>
+            </Columns>
+        </SkillsGroup></div>
+        <div class="css"><SkillsGroup name="CSS">
+            <Columns amount="2">
+                <Skill icon="tailwind" label="Tailwind CSS"/>
+                <Skill icon="scss" label="Scss"/>
+                <Skill icon="bootstrap" label="Bootstrap"/>
+                <Skill icon="materialize" label="Materialize"/>
+            </Columns>
+        </SkillsGroup></div>
+        <div class="other"><SkillsGroup name="Other">
+            <Columns amount="3" size="1.5">
+                <Skill icon="git" label="Git"/>
+                <Skill icon="jest" label="Jest"/>
+                <Skill icon="astro" label="Astro"/>
+                <Skill icon="storybook" label="Storybook"/>
+                <Skill icon="cypress" label="Cypress"/>
+                <Skill icon="jsdoc" label="JSDoc"/>
+                <Skill icon="webpack" label="webpack"/>
+                <Skill icon="babel" label="Babel"/>
+                <Skill icon="bun" label="Bun"/>
+            </Columns>
+        </SkillsGroup></div>
+        <div class="soft"><SkillsGroup name="Soft">
+            <Columns amount="1" size="1.4">
+                <Skill label="Problem-solving"/>
+                <Skill label="Attention to detail"/>
+                <Skill label="Communication"/>
+            </Columns>
+        </SkillsGroup></div>
+    </div>
+</section>
+
+<style lang="scss">
+    @use '/src/scss/primitives.scss';
+    @import '/src/scss/modularScale.scss';
+
+    section {
+        @include primitives.stack(modular-scale(1))
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: modular-scale(-2);
+        grid-template-areas: "basic frameworks backend"
+                             "basic css backend"
+                             "other other soft";
+    }
+    .basic {
+        grid-area: basic;
+    }
+    .frameworks {
+        grid-area: frameworks;
+    }
+    .backend {
+        grid-area: backend;
+    }
+    .css {
+        grid-area: css;
+    }
+    .other {
+        grid-area: other;
+    }
+    .soft {
+        grid-area: soft;
+    }
+</style>

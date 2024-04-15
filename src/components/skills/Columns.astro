@@ -1,0 +1,16 @@
+---
+const {amount, size} = Astro.props
+---
+
+<div class="columns" style={`grid-template-columns: repeat(${amount}, 1fr); font-size: ${size || 1}rem; --size: ${size || 1}rem`}>
+    <slot />
+</div>
+
+<style lang="scss">
+    @import '/src/scss/modularScale.scss';
+
+    .columns {
+        display: grid;
+        gap: modular-scale(-1);
+    }
+</style>

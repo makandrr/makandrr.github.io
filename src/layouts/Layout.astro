@@ -1,0 +1,94 @@
+---
+import 'normalize.css'
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="title" content="I’m a middle front-end developer and this is my portfolio">
+    <meta name="description" content="Hi, I'm MaksimI’m a middle front-end developer">
+    <meta name="keywords" content="frontend, portfolio, middle, skills, html, css, js, javascript, ts, typescript, nodejs, react, vue, tailwind, scss, development, website, work, dev, landing, system">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="10 days">
+    <meta name="author" content="Maksim Andriushin <maximdevtool@gmail.com>">
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@400;500;800&display=swap" rel="stylesheet">
+
+    <title>Portfolio📄</title>
+  </head>
+  <body>
+    <div class="container">
+        <slot />
+    </div>
+  </body>
+</html>
+<style lang="scss" is:global>
+  @import '/src/scss/modularScale.scss';
+  @import '/src/scss/primitives.scss';
+
+  :root {
+    --font-1: Poppins;
+    --font-2: Montserrat;
+    --bg: #221F1F;
+    --color-primary: #A6BBCC;
+    --color-primary-saturated: #86B4D9;
+    --color-secondary: #D5C384;
+    --container: 1600px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-inline-size: 60ch;
+  }
+
+  html, body, div, header, nav, main, footer, section {
+    max-inline-size: none;
+  }
+  img {
+    max-inline-size: 100%;
+  }
+
+  html, body {
+    min-height: 100vh;
+    font-size: calc(0.35rem + 0.38vw)
+  }
+
+  body {
+    background: var(--bg);
+    font-family: var(--font-1);
+    color: #fff;
+  }
+
+  .container {
+    max-width: var(--container);
+    padding: 0 modular-scale(1);
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-weight: 500;
+    font-size: modular-scale(2);
+  }
+
+  .sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    -webkit-clip-path: inset(50%) !important;
+      clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+  }
+</style>

@@ -1,0 +1,39 @@
+---
+const {name} = Astro.props
+---
+
+<section>
+    <h1>{name}</h1>
+    <div role="list" class="content">
+        <slot />
+    </div>
+</section>
+
+<style lang="scss">
+    @use '/src/scss/primitives';
+    @import '/src/scss/modularScale.scss';
+
+    section {
+        @include primitives.stack(modular-scale(0));
+        height: 100%;
+    }
+    h1 {
+        font-size: modular-scale(1);
+        font-weight: 400;
+        margin-bottom: modular-scale(-2);
+    }
+    .content {
+        @include primitives.box(modular-scale(-1));
+        border-top: 1px solid #777;
+        border-bottom: 2px solid #1116;
+
+        flex: 1;
+        // padding: modular-scale(-1);
+        display: grid;
+        gap: modular-scale(-1);
+        border-radius: 1rem;
+    }
+    p {
+        margin: 0
+    }
+</style>

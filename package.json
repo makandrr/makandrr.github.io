@@ -1,0 +1,21 @@
+{
+  "name": "portfolio",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev --host",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.5.10",
+    "astro": "^4.5.15",
+    "autoprefixer": "^10.4.19",
+    "cssnano": "^6.1.2",
+    "normalize.css": "^8.0.1",
+    "sass": "^1.75.0",
+    "typescript": "^5.4.3"
+  }
+}

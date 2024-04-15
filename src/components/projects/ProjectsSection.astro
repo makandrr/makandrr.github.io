@@ -1,0 +1,28 @@
+---
+import Project from "./Project.astro";
+---
+
+<section class="stack">
+    <h1 class="section-title">These are my latest projects:</h1>
+    <div class="content">
+        <div class="grid">
+            <Project title="Billing system" image='billing' techs={['vue', 'nodejs', 'mysql', 'linux']} href="https://tesla-lk.ru" />
+            <Project title="Tesla-Telecom website" image='tesla' techs={['html', 'css', 'ts', 'nodejs']} href="http://tesla-telecom.ru" />
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    @use '/src/scss/primitives.scss';
+    @import '/src/scss/modularScale.scss';
+    
+    section {
+        @include primitives.stack(modular-scale(3))
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: modular-scale(3);
+    }
+</style>
